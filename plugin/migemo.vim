@@ -29,4 +29,4 @@ func MigemoSearch()
 	"call search(pattern)
 endfunc
 
-:nmap z :call MigemoSearch()<CR>
+nnoremap <leader>mi :call MigemoSearch()<cr>
