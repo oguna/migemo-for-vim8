@@ -1,7 +1,19 @@
 scriptencoding utf-8
 
+func FindDict()
+	for path in [
+							\'dict/utf-8/migemo-dict',
+							\'usr/share/cmigemo/utf-8/migemo-dict',
+							\]
+		if filereadable(path)
+			return path
+		endif
+	endfor
+	return ''
+endfunc
+
 let g:migemo_path = $VIM . '/cmigemo.exe'
-let g:migemo_dict_path = $VIM . '/dict/utf-8/migemo-dict'
+let g:migemo_dict_path = FindDict()
 
 if executable(g:migemo_path) == '0'
 	echo "Error: cmigemo is not installed"

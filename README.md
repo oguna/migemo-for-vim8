@@ -17,12 +17,18 @@ Channel機能を使う利点として、Kaoriyaパッチを適用する手間や
 call dein#add('oguna/migemo-for-vim8')
 ```
 
-Migemoは、KaoriYaで配布されている[C/Migemo](https://www.kaoriya.net/software/cmigemo/)を導入してください。
+
+WindowsのMigemoは、KaoriYaで配布されている[C/Migemo](https://www.kaoriya.net/software/cmigemo/)を導入してください。
 ダンロードして展開したディレクトリに含まれている、cmigemo.exe、migemo.dll、dictディレクトリを、
 vim.exeのディレクトリ直下にコピーしてください。
 
+Linux等ではパッケージマネージャで導入すると簡単です。
+
+```
+$ sudo apt install cmigmeo
+```
+
 ## 使い方
-標準ではzキーにバインドしています。
 ノーマルモードで `<leader>mi` キーを押すと、検索キーワードの入力が開始されます。
 `<leader>` は標準ではバックスラッシュに設定されています。
 
@@ -32,4 +38,3 @@ nキーを押すと一致文字列がハイライトしますが、このハイ�
 
 ## 今後の実装予定
 - インクリメンタル検索への対応
-- Linuxでの利用方法の案内
