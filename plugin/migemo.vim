@@ -3,7 +3,7 @@ scriptencoding utf-8
 func FindDict()
 	for path in [
 							\'dict/utf-8/migemo-dict',
-							\'usr/share/cmigemo/utf-8/migemo-dict',
+							\'/usr/share/cmigemo/utf-8/migemo-dict',
 							\]
 		if filereadable(path)
 			return path
@@ -12,10 +12,9 @@ func FindDict()
 	return ''
 endfunc
 
-let g:migemo_path = $VIM . '/cmigemo.exe'
 let g:migemo_dict_path = FindDict()
 
-if executable(g:migemo_path) == '0'
+if executable('cmigemo') == '0'
 	echo "Error: cmigemo is not installed"
 endif
 if !filereadable(g:migemo_dict_path)
@@ -25,7 +24,7 @@ endif
 func MigemoSearch()
 	if !exists('s:migemo_channel')
 		let migemo_args = '-v -n -q -d ' . g:migemo_dict_path
-		let s:migemo_job = job_start(g:migemo_path . ' ' . migemo_args)
+		let s:migemo_job = job_start('cmigemo ' . migemo_args)
 		let s:migemo_channel = job_getchannel(s:migemo_job)
 	endif
 	let word = input('MIGEMO:')
